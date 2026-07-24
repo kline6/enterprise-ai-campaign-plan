@@ -45,6 +45,13 @@ p {
   letter-spacing: 0;
 }
 
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
 .skip-link {
   position: fixed;
   z-index: 20;
@@ -122,6 +129,46 @@ p {
   color: var(--text-secondary);
   font-size: 14px;
   font-weight: 400;
+}
+
+.hero-actions {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.hero-actions span {
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+.cta-button,
+.secondary-button,
+.dialog-close {
+  min-height: 44px;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: background 180ms ease, transform 180ms ease, border-color 180ms ease;
+}
+
+.cta-button {
+  padding: 11px 22px;
+  color: #fff;
+  background: var(--accent);
+}
+
+.cta-button:hover {
+  background: #5a4bd4;
+  transform: translateY(-1px);
+}
+
+.cta-button:active,
+.secondary-button:active,
+.dialog-close:active {
+  transform: translateY(1px);
 }
 
 .oneliner,
@@ -230,6 +277,16 @@ section {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.service-grid .method-card {
+  min-height: 168px;
 }
 
 .method-card {
@@ -452,6 +509,154 @@ section {
   font-size: 13px;
 }
 
+.final-banner .cta-button {
+  margin-top: 18px;
+}
+
+.consultation-dialog {
+  width: min(620px, calc(100% - 32px));
+  max-height: calc(100dvh - 32px);
+  padding: 0;
+  overflow: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  background: var(--card);
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.5);
+}
+
+.consultation-dialog::backdrop {
+  background: rgba(5, 7, 12, 0.78);
+  backdrop-filter: blur(6px);
+}
+
+.dialog-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 24px 26px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.dialog-head span {
+  color: var(--accent-light);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.dialog-head h2 {
+  margin-top: 4px;
+  font-size: 22px;
+}
+
+.dialog-close {
+  padding: 8px 13px;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  background: transparent;
+  font-size: 13px;
+}
+
+.dialog-close:hover,
+.secondary-button:hover {
+  border-color: var(--accent);
+  color: var(--text);
+  background: var(--card-hover);
+}
+
+#consultation-form,
+.summary-panel {
+  padding: 24px 26px 26px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+#consultation-form label,
+.summary-panel label {
+  display: grid;
+  gap: 7px;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 650;
+}
+
+#consultation-form > label {
+  margin-top: 16px;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  background: var(--bg);
+  outline: none;
+}
+
+input,
+select {
+  min-height: 44px;
+  padding: 9px 11px;
+}
+
+textarea {
+  padding: 11px;
+  resize: vertical;
+  line-height: 1.55;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #686d80;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.18);
+}
+
+.privacy-note {
+  margin: 12px 0 16px;
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+.summary-panel[hidden],
+#consultation-form[hidden] {
+  display: none;
+}
+
+.summary-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.secondary-button {
+  padding: 10px 16px;
+  border: 1px solid var(--border);
+  color: var(--text);
+  background: transparent;
+}
+
+.copy-status {
+  min-height: 22px;
+  margin-top: 10px;
+  color: var(--green);
+  font-size: 12px;
+  text-align: right;
+}
+
 @media (max-width: 760px) {
   .hero {
     margin-bottom: 36px;
@@ -471,6 +676,10 @@ section {
   }
 
   .method-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-grid {
     grid-template-columns: 1fr;
   }
 
@@ -512,6 +721,20 @@ section {
   .value-strip {
     display: grid;
     grid-template-columns: 1fr 1fr;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dialog-head,
+  #consultation-form,
+  .summary-panel {
+    padding-inline: 20px;
+  }
+
+  .summary-actions {
+    display: grid;
   }
 }
 
